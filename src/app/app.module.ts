@@ -14,9 +14,16 @@ import { MultipleDemoComponent } from './components/select/multiple-demo';
 import { ShCodeViewer } from '../code-viewer/code-viewer.module';
 
 import { AppComponent } from './app.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
-  declarations: [SelectSectionComponent, SampleSectionComponent, SingleDemoComponent, MultipleDemoComponent, AppComponent],
+  declarations: [
+    SelectSectionComponent, 
+    SampleSectionComponent, 
+    SingleDemoComponent, 
+    MultipleDemoComponent, 
+    AppComponent
+  ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -24,7 +31,8 @@ import { AppComponent } from './app.component';
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     NgMultiSelectDropDownModule.forRoot(),
-    ShCodeViewer
+    ShCodeViewer,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

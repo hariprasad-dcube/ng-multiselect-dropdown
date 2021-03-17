@@ -4,12 +4,12 @@
       <h3>Select Multiple Cities</h3>
       <form [formGroup]="myForm">
         <ng-multiselect-dropdown 
-          name="city" [placeholder]="'Select City'" [data]="cities" formControlName="city" [disabled]="disabled" [settings]="dropdownSettings" (onDropDownClose)="onDropDownClose()" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+          name="city" [placeholder]="'Select City'" [label]="test" [data]="cities" formControlName="city" [disabled]="disabled" [settings]="dropdownSettings" (onDropDownClose)="onDropDownClose()" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
         </ng-multiselect-dropdown>
       </form>
       <p></p>
     </div>
-    <div class="col-md-8">
+    <!-- <div class="col-md-8">
       <h3>Option</h3>
       <div class="checkbox">
         <label>
@@ -41,9 +41,9 @@
           <input type="button" (click)="handleReset()" value="reset">
         </label>
       </div>
-    </div>
+    </div> -->
   </div>
-  <div class="panel panel-default">
+  <!-- <div class="panel panel-default">
     <div class="panel-heading">Settings</div>
     <div class="panel-body">
       <pre>
@@ -59,4 +59,4 @@
       <sh-code-viewer [code]="typescriptCode" [language]="'typescript'"></sh-code-viewer>
     </tab>
   </tabset>
-</div>
+</div> -->

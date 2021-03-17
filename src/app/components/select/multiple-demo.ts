@@ -115,7 +115,7 @@ export class MultipleDemoComponent implements OnInit {
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       enableCheckAll: this.showAll,
-      itemsShowLimit: 3,
+      itemsShowLimit: 7,
       allowSearchFilter: this.ShowFilter
     };
     this.myForm = this.fb.group({
@@ -138,6 +138,7 @@ export class MultipleDemoComponent implements OnInit {
 
   onDropDownClose() {
     console.log('dropdown closed');
+    console.log(this.myForm.value.city)
   }
 
   toogleShowAll() {

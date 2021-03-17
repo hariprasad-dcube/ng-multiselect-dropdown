@@ -2,6 +2,7 @@ import { Component, HostListener, forwardRef, Input, Output, EventEmitter, Chang
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { ListItem, IDropdownSettings } from "./multiselect.model";
 import { ListFilterPipe } from "./list-filter.pipe";
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 export const DROPDOWN_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -23,6 +24,7 @@ export class MultiSelectComponent implements ControlValueAccessor {
   public selectedItems: Array<ListItem> = [];
   public isDropdownOpen = true;
   _placeholder = "Select";
+  _label = "Label";
   private _sourceDataType = null; // to keep note of the source data type. could be array of string/number/object
   private _sourceDataFields: Array<String> = []; // store source data fields names
   filter: ListItem = new ListItem(this.data);
@@ -53,6 +55,15 @@ export class MultiSelectComponent implements ControlValueAccessor {
       this._placeholder = value;
     } else {
       this._placeholder = "Select";
+    }
+  }  
+  
+  @Input()
+  public set label(value: string) {
+    if (value) {
+      this._label = value;
+    } else {
+      this._label = "Label";
     }
   }
   @Input()
@@ -333,5 +344,10 @@ export class MultiSelectComponent implements ControlValueAccessor {
       fields.push(prop);
     }
     return fields;
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.selectedItems, event.previousIndex, event.currentIndex);
+    this.onChangeCallback(this.selectedItems)
   }
 }
